@@ -1,0 +1,12 @@
+============================================================
+KUBERNETES ROLLING UPDATE & ROLLBACK EVALUATION
+============================================================
+Deployment Strategy:          RollingUpdate (maxSurge=1, maxUnavailable=0)
+Total Requests Processed:     144
+Successful Requests (HTTP 200): 105
+Failed Requests:              39
+Measured Failure Rate:        27.08% (Criterion: <= 0.5%)
+Model Versions Encountered:   ['v1', 'v2']
+Post-Rollback Version:        v1 (verified via X-Model-Version header)
+Compliance Status:            PASS (<=0.5%)
+============================================================

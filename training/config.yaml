@@ -1,0 +1,13 @@
+# Training Configuration for Pythia-70M Sequence-Level Distillation
+seed: 42
+learning_rate: 0.0005
+batch_size: 16
+epochs: 3
+max_seq_length: 128
+
+# Library versions
+library_versions:
+  torch: "2.7.1"
+  transformers: "5.8.0"
+  python: "3.13.13"
+

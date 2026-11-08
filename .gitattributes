@@ -1,0 +1,14 @@
+# Treat text files with LF line endings
+* text=auto eol=lf
+
+# Explicit binary files - do not normalize or touch line endings
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.safetensors binary
+*.bin binary
+*.pt binary
+*.pth binary

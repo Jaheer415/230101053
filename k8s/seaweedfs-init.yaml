@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: seaweedfs-init
+  namespace: data
+spec:
+  template:
+    metadata:
+      labels:
+        job: seaweedfs-init
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: aws-cli
+          image: amazon/aws-cli:latest
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Waiting for SeaweedFS S3 endpoint..."
+              until curl -s http://seaweedfs.data.svc.cluster.local:8333 > /dev/null 2>&1; do sleep 2; done
+              export AWS_ACCESS_KEY_ID=any
+              export AWS_SECRET_ACCESS_KEY=any
+              aws --endpoint-url http://seaweedfs.data.svc.cluster.local:8333 s3 mb s3://datasets || true
+              aws --endpoint-url http://seaweedfs.data.svc.cluster.local:8333 s3 mb s3://models || true
+              aws --endpoint-url http://seaweedfs.data.svc.cluster.local:8333 s3 cp /data/commands_pool.jsonl s3://datasets/commands_pool.jsonl
+              echo "Buckets initialized and commands_pool.jsonl uploaded."
+          volumeMounts:
+            - name: dataset-vol
+              mountPath: /data
+      volumes:
+        - name: dataset-vol
+          configMap:
+            name: commands-pool-configmap
+

@@ -1,0 +1,51 @@
+============================================================
+COLD START EVALUATION REPORT
+============================================================
+Run 1 Time: 17.87 s
+Run 2 Time: 15.001 s
+Run 3 Time: 15.582 s
+Median Cold-Start Time: 15.582 s
+------------------------------------------------------------
+Log Evidence (Model Download & Initialization):
+=== Run 1 Startup Logs ===
+INFO:     Started server process [1196]
+INFO:     Waiting for application startup.
+2026-11-07 12:32:44,025 [INFO] Loading model and tokenizer from models/v1...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 76/76 [00:00<00:00, 7165.56it/s]
+2026-11-07 12:32:45,518 [INFO] Model v1 successfully loaded into memory and ready.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8005 (Press CTRL+C to quit)
+
+INFO:     127.0.0.1:50825 - "GET /readyz HTTP/1.1" 200 OK
+
+=== Run 2 Startup Logs ===
+INFO:     Started server process [5140]
+INFO:     Waiting for application startup.
+2026-11-07 12:32:59,158 [INFO] Loading model and tokenizer from models/v1...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 76/76 [00:00<00:00, 5877.62it/s]
+2026-11-07 12:33:00,989 [INFO] Model v1 successfully loaded into memory and ready.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8005 (Press CTRL+C to quit)
+
+INFO:     127.0.0.1:50877 - "GET /readyz HTTP/1.1" 200 OK
+
+=== Run 3 Startup Logs ===
+INFO:     Started server process [22644]
+INFO:     Waiting for application startup.
+2026-11-07 12:33:14,714 [INFO] Loading model and tokenizer from models/v1...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/76 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 76/76 [00:00<00:00, 6486.65it/s]
+2026-11-07 12:33:16,236 [INFO] Model v1 successfully loaded into memory and ready.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8005 (Press CTRL+C to quit)
+
+INFO:     127.0.0.1:50930 - "GET /readyz HTTP/1.1" 200 OK
+

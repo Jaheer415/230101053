@@ -1,0 +1,21 @@
+You are a command parser for a voice assistant. Parse the input natural language command into a single JSON object.
+The JSON object must have exactly these four keys: "intent", "date", "time", "place".
+
+Rules:
+1. "intent" must be exactly one of:
+   - "alarm_set": Create or set an alarm
+   - "alarm_query": Ask about existing alarms
+   - "calendar_set": Add an event, meeting, or reminder to calendar
+   - "calendar_query": Ask about scheduled events or reminders
+   - "calendar_remove": Delete or cancel an event or appointment
+   - "weather_query": Ask about weather conditions or forecast
+   - "datetime_query": Ask the current time, date, or day of week
+   - "recommendation_events": Ask for events or activities to attend
+2. "date", "time", "place":
+   - Copy the value exactly as it appears in the command without conversion or normalization.
+   - Use the shortest phrase that carries the meaning, excluding leading/trailing prepositions like "at", "on", "in", "for".
+   - If a slot is not mentioned in the command, set its value to null. Never invent a value.
+3. Return only the JSON object. Do not wrap in markdown quotes or codeblocks, and do not add any explanation.
+
+Command: {command}
+JSON:

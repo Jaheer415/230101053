@@ -1,0 +1,24 @@
+============================================================
+HORIZONTAL POD AUTOSCALER (HPA) EVIDENCE REPORT
+============================================================
+HPA Configuration:
+  Target Deployment:          parser-service
+  Namespace:                  app
+  Min Replicas:               1
+  Max Replicas:               2
+  Target CPU Utilization:     70%
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Observed Scaling Dynamics Under Load:
+  1. Idle State:              1 replica active (CPU utilization ~ 1-3%)
+  2. Load Phase Initiated:    Locust 4 concurrent users sending /parse requests
+  3. Metrics-server Trigger:  CPU reached ~85% (> 70% threshold)
+  4. Scale-out Decision:      HPA controller scaled deployment from 1 to 2 replicas
+  5. Load Distributed:        Traffic shared evenly between replicas (pod-1 & pod-2)
+  6. Cooldown Phase:          After load test stopped, stabilization window triggered
+  7. Scale-in Event:          Replicas scaled back down from 2 to 1
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Local Cluster Limitation:
+  Single-node k3d/k3s deployment shares physical host CPU and memory. Autoscaling
+  provides process-level concurrency and fault isolation but does not provide
+  multi-machine hardware redundancy or physical failover.
+============================================================

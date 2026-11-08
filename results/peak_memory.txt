@@ -1,0 +1,23 @@
+============================================================
+Task 3: 50 Sequential Requests Under Resource Constraints Test
+Constraints: CPU Limit = 1 core (1000m), Memory Limit = 1 GiB (1024 MiB)
+============================================================
+[Resource Constraint] Affined process to single CPU core 0.
+Started service process PID: 22980. Waiting for readiness...
+Service is ready. Loading 50 commands from data/validation.jsonl...
+Request 10/50 | Status: 200 | Latency: 0.612s | Current RSS: 793.3 MiB
+Request 20/50 | Status: 200 | Latency: 0.575s | Current RSS: 794.23 MiB
+Request 30/50 | Status: 200 | Latency: 0.754s | Current RSS: 794.97 MiB
+Request 40/50 | Status: 200 | Latency: 0.729s | Current RSS: 796.95 MiB
+Request 50/50 | Status: 200 | Latency: 0.7s | Current RSS: 797.46 MiB
+------------------------------------------------------------
+EVALUATION RESULTS:
+  Total Requests Sent:        50
+  Successful Requests (200):  47
+  Failed Requests:            3
+  Out Of Memory (OOM) Kills:  NONE (0)
+  Total Execution Time:       33.11 s
+  Average Latency:            0.662 s/req
+  Peak Resident Memory (RSS): 797.46 MiB (0.779 GiB)
+  Memory Limit Compliance:    797.46 MiB < 1024 MiB (Limit: 1 GiB) -> PASS
+============================================================

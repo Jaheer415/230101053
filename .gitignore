@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+.venv/
+venv/
+env/
+.env
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Model files (Uploaded as GitHub Release assets - DO NOT COMMIT TO GIT)
+models/v1/*
+!models/v1/.gitkeep
+models/v2/*
+!models/v2/.gitkeep
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Temporary scratch files
+scratch/
+extracted_assignment.txt
+
+# SeaweedFS runtime data
+seaweedfs-data/
+*.dat
+*.idx
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Submission archives (submit directly, do not commit)
+*.zip
+
